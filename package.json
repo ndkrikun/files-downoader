@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "@types/node": "^8.0.53",
+    "delay": "^2.0.0",
+    "download-file": "^0.1.5",
     "import-export": "^1.0.1",
     "mt-files-downloader": "^0.2.5",
     "nodemon": "^1.12.1",
