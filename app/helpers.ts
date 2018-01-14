@@ -7,11 +7,12 @@ export function getFileName(
 }
 
 const line: string = '----------------------------------------------------------'
+const padding: string = '     ';
 
 function showMessage(
   message: string
 ): void {
-  console.info(`\n\t${message}\n\t${line}`)
+  console.info(`\n${padding}${message}\n\n${line}`)
 }
 
 export function logDownloadResult(
@@ -20,16 +21,14 @@ export function logDownloadResult(
   isLastItem: boolean
 ): void {
   const step: string = `${state.fileIndex + 1} / ${state.sourceData.length}`
-  const status: string = !!error ? `Failed with error code: ${error}` : 'Done!'
+  const status: string = !!error ? `Failed with error code: ${error}` : 'Success'
   const message: string = `${step} ${status}`
 
   showMessage(message)
 
-  isLastItem && console.info(`
-    \n\tCompleted!
-    \n\tSuccessfuly downloaded ${state.downloaded} from ${state.sourceData.length} items
-    \n\tFailed to download ${state.sourceData.length - state.downloaded}
-  `)
+  if (isLastItem) {
+    console.info(`\n${padding}Completed!\n${padding}Successfuly downloaded ${state.downloaded} from ${state.sourceData.length} items\n${padding}Failed to download ${state.sourceData.length - state.downloaded}`)
+  }
 }
 
 export function logInitialDownload(

@@ -11,7 +11,7 @@ import { DownloadState } from './interfaces/download-state.model'
 
 const sourceData: string[] = textFileToArray(
   SOURCE_DATA_PATH
-).filter((el, index) => index >= 1000 && index <= 1100);
+);
 
 const state: DownloadState = {
   fileIndex: 0,
@@ -69,4 +69,3 @@ function init(): void {
 }
 
 init()
- 
